@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UFI DA MAN — Preview</title>
+<title>UFI DA MAN — Prague DJ & Producer</title>
+<meta name="description" content="UFI DA MAN — Prague-based DJ and electronic music producer. Techno, House, Electro, Nu-Rave. Resident at SOUND.events. Book now.">
+<meta name="keywords" content="UFI DA MAN, Prague DJ, electronic music, techno, house, electro, nu-rave, booking">
+<meta property="og:title" content="UFI DA MAN — Prague DJ & Producer">
+<meta property="og:description" content="Prague-based DJ and producer moving on the edge of underground and mainstream since 1993.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UFI DA MAN — Prague DJ & Producer">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -107,11 +114,18 @@
   .social-icons { display:flex;gap:16px;flex-wrap:wrap; }
   .social-icon { width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gray);text-decoration:none;font-size:18px;transition:border-color .2s,color .2s; }
   .social-icon:hover { border-color:var(--accent);color:var(--accent); }
-  .ufi-social-icons .elementor-social-icon { background:transparent!important;border:1px solid var(--border)!important;border-radius:0!important;width:44px!important;height:44px!important;transition:border-color .2s!important; }
-  .ufi-social-icons .elementor-social-icon i { color:var(--gray)!important;font-size:18px!important; }
-  .ufi-social-icons .elementor-social-icon:hover { border-color:var(--accent)!important; }
-  .ufi-social-icons .elementor-social-icon:hover i { color:var(--accent)!important; }
   @media(max-width:768px) { .contact{grid-template-columns:1fr;padding:80px 24px} }
+
+  .upcoming { padding:120px 48px;border-bottom:1px solid var(--border); }
+  .upcoming .mixes-header { display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px; }
+  .ra-embed-wrap { display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start; }
+  .ra-info { display:flex;flex-direction:column;gap:24px; }
+  .ra-label { font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent); }
+  .ra-sub { font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--gray); }
+  .ra-btn { display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.1em;color:var(--black);background:var(--accent);padding:14px 32px;text-decoration:none;transition:opacity .2s;align-self:flex-start; }
+  .ra-btn:hover { opacity:.85; }
+  .ra-frame { width:100%;height:600px;border:1px solid var(--border);display:block; }
+  @media(max-width:768px) { .upcoming{padding:80px 24px} .ra-embed-wrap{grid-template-columns:1fr} .ra-frame{height:400px} }
 
   .ufi-footer { padding:40px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center; }
   .ufi-footer .logo { font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.1em; }
@@ -134,7 +148,7 @@
 <body>
 <div class="cursor" id="cursor"></div>
 
-<nav>
+<nav class="ufi-nav">
   <a href="#" class="nav-logo">UFI DA MAN</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -143,7 +157,18 @@
     <li><a href="#mixes">Mixes</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="#about">About</a>
+  <a href="#gigs">Gigs</a>
+  <a href="#upcoming">Events</a>
+  <a href="#mixes">Mixes</a>
+  <a href="#contact">Contact</a>
+</div>
 
 <section class="hero">
   <div class="hero-bg-number">82</div>
@@ -316,7 +341,7 @@
         <div class="mix-name">Sound @ Gabriel Loci Monastery</div>
         <div class="mix-detail">2025 · Techno / House</div>
       </div>
-      <iframe scrolling="no" allow="autoplay"
+      <iframe scrolling="no" allow="autoplay" loading="lazy"
         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-da-man-sound-gabriel-loci&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
         height="166"></iframe>
     </div>
@@ -326,7 +351,7 @@
         <div class="mix-name">G SOUND+ @ Radost FX Prague</div>
         <div class="mix-detail">2023 · House / Techno / Electro</div>
       </div>
-      <iframe scrolling="no" allow="autoplay"
+      <iframe scrolling="no" allow="autoplay" loading="lazy"
         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/g-sound-by-ufi-da-man-radost-fx-prague-april-21st&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
         height="166"></iframe>
     </div>
@@ -336,7 +361,7 @@
         <div class="mix-name">Sound @ Gabriel Loci Monastery</div>
         <div class="mix-detail">2023 · Deep / Techno</div>
       </div>
-      <iframe scrolling="no" allow="autoplay"
+      <iframe scrolling="no" allow="autoplay" loading="lazy"
         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-da-man-sound-gabriel-loci-monastery&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
         height="166"></iframe>
     </div>
@@ -346,7 +371,7 @@
         <div class="mix-name">Sound Open Air Mlékojedy w/ Einmusic</div>
         <div class="mix-detail">2021 · Open Air Set</div>
       </div>
-      <iframe scrolling="no" allow="autoplay"
+      <iframe scrolling="no" allow="autoplay" loading="lazy"
         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-daman-at-sound-open-air-mlekojedy-w-einmusic-2472021&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
         height="166"></iframe>
     </div>
@@ -365,34 +390,58 @@
       Hit me up.
     </p>
     <a href="mailto:booking@ufidaman.com" class="contact-email">BOOKING@UFIDAMAN.COM</a>
-    <div class="social-links">
-      <a href="https://ra.co/dj/ufidaman" target="_blank" rel="noopener" class="social-link">Resident Advisor</a>
-      <a href="https://soundcloud.com/ufi-daman" target="_blank" rel="noopener" class="social-link">SoundCloud</a>
-      <a href="https://www.mixcloud.com/ufidaman/" target="_blank" rel="noopener" class="social-link">Mixcloud</a>
-      <a href="https://www.facebook.com/ufi.daman.official" target="_blank" rel="noopener" class="social-link">Facebook</a>
-      <a href="https://x.com/ufi_daman" target="_blank" rel="noopener" class="social-link">X / Twitter</a>
-      <a href="https://bandzone.cz/ufidaman" target="_blank" rel="noopener" class="social-link">Bandzone</a>
+    <div class="social-icons">
+      <a href="https://ra.co/dj/ufidaman" target="_blank" rel="noopener" class="social-icon" aria-label="Resident Advisor"><i class="fa-solid fa-record-vinyl"></i></a>
+      <a href="https://soundcloud.com/ufi-daman" target="_blank" rel="noopener" class="social-icon" aria-label="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
+      <a href="https://www.mixcloud.com/ufidaman/" target="_blank" rel="noopener" class="social-icon" aria-label="Mixcloud"><i class="fa-brands fa-mixcloud"></i></a>
+      <a href="https://www.facebook.com/ufi.daman.official" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://x.com/ufi_daman" target="_blank" rel="noopener" class="social-icon" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://bandzone.cz/ufidaman" target="_blank" rel="noopener" class="social-icon" aria-label="Bandzone"><i class="fa-solid fa-music"></i></a>
     </div>
   </div>
 </section>
 
-<footer>
+<footer class="ufi-footer">
   <span class="logo">UFI DA MAN</span>
   <span class="copy">© 2025 UFI DA MAN · Prague · All rights reserved.</span>
 </footer>
 
 <script>
+// Custom cursor with requestAnimationFrame for performance
 const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
+let mouseX = 0, mouseY = 0;
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+(function animateCursor() {
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+  requestAnimationFrame(animateCursor);
+})();
 document.querySelectorAll('a, .mix-card, .gig-row, .genre-tag').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('expand'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('expand'));
 });
+
+// Hamburger mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
+// Scroll reveal
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), 100); });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
