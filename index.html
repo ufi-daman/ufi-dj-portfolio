@@ -127,6 +127,27 @@
   .ra-frame { width:100%;height:600px;border:1px solid var(--border);display:block; }
   @media(max-width:768px) { .upcoming{padding:80px 24px} .ra-embed-wrap{grid-template-columns:1fr} .ra-frame{height:400px} }
 
+  /* Facebook Events */
+  .fb-events-section { padding:120px 48px;border-bottom:1px solid var(--border); }
+  .fb-events-tabs { display:flex;gap:0;margin-bottom:48px;border-bottom:1px solid var(--border); }
+  .fb-tab { font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.15em;padding:14px 32px;cursor:pointer;border:none;background:none;color:var(--gray);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s; }
+  .fb-tab.active { color:var(--accent);border-bottom-color:var(--accent); }
+  .fb-events-list { display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px; }
+  .fb-event-card { background:#111;border:1px solid var(--border);overflow:hidden;transition:border-color .3s; }
+  .fb-event-card:hover { border-color:var(--accent); }
+  .fb-event-cover { width:100%;height:180px;object-fit:cover;display:block;background:#1a1a1a; }
+  .fb-event-cover-placeholder { width:100%;height:180px;background:#1a1a1a;display:flex;align-items:center;justify-content:center; }
+  .fb-event-cover-placeholder span { font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(232,255,0,.15); }
+  .fb-event-body { padding:24px; }
+  .fb-event-date { font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:10px; }
+  .fb-event-name { font-family:'Bebas Neue',sans-serif;font-size:clamp(20px,2.5vw,28px);line-height:1.1;letter-spacing:.02em;margin-bottom:8px; }
+  .fb-event-place { font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-bottom:16px; }
+  .fb-event-link { display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.1em;color:var(--black);background:var(--accent);padding:8px 20px;text-decoration:none;transition:opacity .2s; }
+  .fb-event-link:hover { opacity:.8; }
+  .fb-events-status { font-family:'DM Sans',sans-serif;font-size:16px;color:var(--gray);padding:40px 0; }
+  .fb-events-status.error { color:#ff4444; }
+  @media(max-width:768px) { .fb-events-section{padding:80px 24px} }
+
   .ufi-footer { padding:40px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center; }
   .ufi-footer .logo { font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.1em; }
   .ufi-footer .copy { font-size:11px;letter-spacing:.2em;color:var(--gray);text-transform:uppercase; }
@@ -154,6 +175,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#gigs">Gigs</a></li>
     <li><a href="#upcoming">Events</a></li>
+    <li><a href="#fb-events">FB Events</a></li>
     <li><a href="#mixes">Mixes</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -166,6 +188,7 @@
   <a href="#about">About</a>
   <a href="#gigs">Gigs</a>
   <a href="#upcoming">Events</a>
+  <a href="#fb-events">FB Events</a>
   <a href="#mixes">Mixes</a>
   <a href="#contact">Contact</a>
 </div>
@@ -378,6 +401,21 @@
   </div>
 </section>
 
+<!-- FACEBOOK EVENTS -->
+<section class="fb-events-section" id="fb-events">
+  <div class="mixes-header reveal">
+    <h2 class="mixes-title">Facebook<br>Events</h2>
+    <a href="https://www.facebook.com/ufi.daman.official/events" target="_blank" rel="noopener" class="sc-all">Všechny na FB →</a>
+  </div>
+  <div class="fb-events-tabs">
+    <button class="fb-tab active" data-tab="upcoming">Nadcházející</button>
+    <button class="fb-tab" data-tab="past">Uplynulé</button>
+  </div>
+  <div class="fb-events-list" id="fbEventsList">
+    <p class="fb-events-status">Načítám eventy…</p>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="reveal">
     <h2 class="contact-headline">
@@ -444,6 +482,62 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Facebook Events
+(function () {
+  const list = document.getElementById('fbEventsList');
+  const tabs = document.querySelectorAll('.fb-tab');
+  let allEvents = { upcoming: [], past: [] };
+  let activeTab = 'upcoming';
+
+  function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('cs-CZ', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+
+  function renderEvents(events) {
+    if (!events.length) {
+      list.innerHTML = '<p class="fb-events-status">Žádné eventy k zobrazení.</p>';
+      return;
+    }
+    list.innerHTML = events.map(ev => {
+      const cover = ev.cover
+        ? `<img class="fb-event-cover" src="${ev.cover.source}" alt="${ev.name}" loading="lazy">`
+        : `<div class="fb-event-cover-placeholder"><span>UFI</span></div>`;
+      const place = ev.place ? ev.place.name : '';
+      const link = `https://www.facebook.com/events/${ev.id}`;
+      return `<div class="fb-event-card">
+        ${cover}
+        <div class="fb-event-body">
+          <div class="fb-event-date">${formatDate(ev.start_time)}</div>
+          <div class="fb-event-name">${ev.name}</div>
+          ${place ? `<div class="fb-event-place">${place}</div>` : ''}
+          <a href="${link}" target="_blank" rel="noopener" class="fb-event-link">Zobrazit event →</a>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function switchTab(tab) {
+    activeTab = tab;
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+    renderEvents(allEvents[tab]);
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+
+  // Načíst z backendu
+  fetch('/api/events')
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) throw new Error(data.error);
+      allEvents = { upcoming: data.upcoming || [], past: data.past || [] };
+      renderEvents(allEvents[activeTab]);
+    })
+    .catch(err => {
+      list.innerHTML = `<p class="fb-events-status error">Eventy se nepodařilo načíst: ${err.message}</p>`;
+    });
+})();
 </script>
 
 </body>
