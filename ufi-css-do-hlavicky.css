@@ -37,6 +37,8 @@
   .hero-name .highlight { color:var(--accent);display:block; }
   .hero-bottom { display:flex;justify-content:space-between;align-items:flex-end;opacity:0;animation:fadeUp .8s ease .7s forwards; }
   .hero-role { font-family:'DM Sans',sans-serif;font-style:italic;font-size:clamp(18px,2.5vw,28px);color:var(--gray);line-height:1.4; }
+  .sound-link { color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s; }
+  .sound-link:hover { border-bottom-color:var(--accent); }
   .hero-scroll { font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:16px;writing-mode:vertical-rl; }
   .hero-scroll::after { content:'';width:1px;height:60px;background:var(--accent);display:block;animation:grow 1.5s ease infinite; }
   .hero-bg-number { position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:40vw;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.03);pointer-events:none;user-select:none;line-height:1; }
