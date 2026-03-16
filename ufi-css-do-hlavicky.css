@@ -28,6 +28,8 @@
   .mobile-menu a { font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:.1em;color:var(--white);text-decoration:none;transition:color .2s; }
   .mobile-menu a:hover { color:var(--accent); }
   .nav-socials { display:flex;align-items:center;justify-self:end; }
+  .sound-link { color:var(--white);text-decoration:none;transition:color .2s; }
+  .sound-link:hover { color:var(--accent); }
   @media(max-width:768px) { .nav-links{display:none} .nav-socials{display:none} .hamburger{display:flex;grid-column:3;justify-self:end} .ufi-nav{mix-blend-mode:normal;background:rgba(10,10,10,.9)} }
 
   .hero { min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:0 48px 60px;position:relative;overflow:hidden; }
