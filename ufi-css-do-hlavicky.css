@@ -27,7 +27,10 @@
   .mobile-menu.open { display:flex; }
   .mobile-menu a { font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:.1em;color:var(--white);text-decoration:none;transition:color .2s; }
   .mobile-menu a:hover { color:var(--accent); }
-  @media(max-width:768px) { .nav-links{display:none} .hamburger{display:flex} .ufi-nav{mix-blend-mode:normal;background:rgba(10,10,10,.9)} }
+  .nav-socials { display:flex;gap:20px;align-items:center; }
+  .nav-socials a { color:var(--white);text-decoration:none;font-size:14px;opacity:.5;transition:opacity .2s; }
+  .nav-socials a:hover { opacity:1; }
+  @media(max-width:768px) { .nav-links{display:none} .nav-socials{display:none} .hamburger{display:flex} .ufi-nav{mix-blend-mode:normal;background:rgba(10,10,10,.9)} }
 
   .hero { min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:0 48px 60px;position:relative;overflow:hidden; }
   .hero-content { display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:40px; }
