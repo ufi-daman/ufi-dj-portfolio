@@ -15,7 +15,7 @@
 
   .ufi-nav { position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:24px 48px;mix-blend-mode:difference; }
   .nav-logo { font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.15em;color:var(--white);text-decoration:none; }
-  .nav-links { display:flex;gap:40px;list-style:none; }
+  .nav-links { display:flex;gap:40px;list-style:none;position:absolute;left:50%;transform:translateX(-50%); }
   .nav-links a { font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--white);text-decoration:none;opacity:.6;transition:opacity .2s; }
   .nav-links a:hover { opacity:1; }
   .hamburger { display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none; }
