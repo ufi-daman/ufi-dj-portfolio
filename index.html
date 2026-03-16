@@ -165,9 +165,7 @@
   <a href="#" class="nav-logo">UFI DA MAN</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#gigs">Gigs</a></li>
-    <li><a href="#upcoming">Events</a></li>
-    <li><a href="#fb-events">FB Events</a></li>
+    <li><a href="#events">Events</a></li>
     <li><a href="#mixes">Mixes</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -178,9 +176,7 @@
 
 <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
   <a href="#about">About</a>
-  <a href="#gigs">Gigs</a>
-  <a href="#upcoming">Events</a>
-  <a href="#fb-events">FB Events</a>
+  <a href="#events">Events</a>
   <a href="#mixes">Mixes</a>
   <a href="#contact">Contact</a>
 </div>
@@ -260,10 +256,38 @@
   </div>
 </div>
 
-<section class="gigs" id="gigs">
+<section class="events" id="events">
   <div class="gigs-header reveal">
-    <h2 class="gigs-title">Live<br>Dates</h2>
+    <h2 class="gigs-title">Events</h2>
   </div>
+
+  <!-- UPCOMING EVENTS — přidej nový event jako .gig-row.upcoming-row před tuto sekci -->
+  <div class="events-sub-label reveal">Upcoming</div>
+
+  <!-- příklad nadcházejícího eventu:
+  <div class="gig-row upcoming-row reveal">
+    <div class="gig-date">
+      <span class="gig-day">28</span>
+      <span class="gig-month">MAR</span>
+    </div>
+    <div class="gig-info">
+      <div class="gig-venue">Název venue</div>
+      <div class="gig-location">Praha · Techno</div>
+    </div>
+    <a href="https://..." target="_blank" rel="noopener" class="gig-ticket">Tickets →</a>
+  </div>
+  -->
+
+  <div class="gig-row no-events reveal">
+    <div class="gig-info">
+      <div class="gig-venue">No upcoming events</div>
+      <div class="gig-location">Check back soon</div>
+    </div>
+  </div>
+
+  <!-- PAST GIGS -->
+  <div class="events-sub-label reveal" style="margin-top:60px;">Past</div>
+
   <div class="gig-row reveal">
     <div class="gig-year">2025</div>
     <div class="gig-info">
@@ -322,28 +346,6 @@
   </div>
 </section>
 
-<!-- RA UPCOMING EVENTS -->
-<section class="upcoming" id="upcoming">
-  <div class="mixes-header reveal">
-    <h2 class="mixes-title">Upcoming<br>Events</h2>
-    <a href="https://ra.co/dj/ufidaman" target="_blank" rel="noopener" class="sc-all">View on RA →</a>
-  </div>
-  <div class="ra-embed-wrap reveal">
-    <div class="ra-info">
-      <p class="ra-label">Live on Resident Advisor</p>
-      <p class="ra-sub">All upcoming gigs are listed on UFI DA MAN's official RA profile. Click any event for tickets and details.</p>
-      <a href="https://ra.co/dj/ufidaman" target="_blank" rel="noopener" class="ra-btn">Open RA Profile ↗</a>
-    </div>
-    <iframe
-      src="https://ra.co/dj/ufidaman"
-      title="UFI DA MAN on Resident Advisor"
-      class="ra-frame"
-      loading="lazy"
-      scrolling="yes">
-    </iframe>
-  </div>
-</section>
-
 <section class="mixes" id="mixes">
   <div class="mixes-header reveal">
     <h2 class="mixes-title">Stream<br>My Sets</h2>
@@ -393,36 +395,6 @@
   </div>
 </section>
 
-<!-- FACEBOOK EVENTS -->
-<section class="fb-events-section" id="fb-events">
-  <div class="mixes-header reveal">
-    <h2 class="mixes-title">Facebook<br>Events</h2>
-  </div>
-  <div class="fb-widget-wrap reveal">
-    <div class="fb-widget-info">
-      <span class="fb-widget-label">Sleduj akce na Facebooku</span>
-      <p class="fb-widget-sub">
-        Všechny nadcházející i uplynulé akce najdeš přímo na mé Facebook stránce.
-        Označ si "Zúčastním se" a nezmeš žádný set.
-      </p>
-      <a href="https://www.facebook.com/ufi.daman.official/events" target="_blank" rel="noopener" class="fb-widget-btn">Všechny eventy →</a>
-    </div>
-    <div class="fb-plugin-wrap" id="fbPluginWrap">
-      <!-- FB Page Plugin se vloží přes JS SDK -->
-      <div
-        class="fb-page"
-        data-href="https://www.facebook.com/ufi.daman.official"
-        data-tabs="events"
-        data-width="380"
-        data-height="500"
-        data-small-header="true"
-        data-adapt-container-width="true"
-        data-hide-cover="false"
-        data-show-facepile="false">
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="contact" id="contact">
   <div class="reveal">
@@ -490,16 +462,6 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Facebook Page Plugin SDK
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v19.0';
-  js.async = true; js.defer = true;
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 </script>
 
 </body>
