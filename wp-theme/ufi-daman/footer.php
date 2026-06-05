@@ -11,7 +11,32 @@
 	</span>
 </footer>
 
+<!-- Gallery lightbox -->
+<div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Photo lightbox', 'ufi-daman' ); ?>">
+	<button class="gallery-lightbox-close" id="galleryLightboxClose" aria-label="<?php esc_attr_e( 'Close', 'ufi-daman' ); ?>">&#x2715;</button>
+	<img src="" alt="" id="galleryLightboxImg">
+</div>
+
 <script>
+const lb = document.getElementById('galleryLightbox');
+const lbImg = document.getElementById('galleryLightboxImg');
+if (lb) {
+  function closeLightbox() { lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+  document.querySelectorAll('.gallery-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      const img = item.querySelector('img');
+      lbImg.src = img.getAttribute('data-full') || img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    item.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); } });
+  });
+  document.getElementById('galleryLightboxClose').addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox(); });
+}
+
 // Custom cursor with requestAnimationFrame for performance
 const cursor = document.getElementById('cursor');
 let mouseX = 0, mouseY = 0;

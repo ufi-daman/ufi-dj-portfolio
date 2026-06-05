@@ -17,6 +17,73 @@ if ( ! defined( 'ABSPATH' ) ) {
 function ufi_customize_register( $wp_customize ) {
 
 	// -------------------------------------------------------------------------
+	// Section: Hero
+	// -------------------------------------------------------------------------
+	$wp_customize->add_section(
+		'ufi_hero',
+		array(
+			'title'    => __( 'Hero', 'ufi-daman' ),
+			'priority' => 20,
+		)
+	);
+
+	// Hero background image
+	$wp_customize->add_setting(
+		'ufi_hero_bg_image',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'ufi_hero_bg_image',
+			array(
+				'label'   => __( 'Hero Background Image', 'ufi-daman' ),
+				'section' => 'ufi_hero',
+			)
+		)
+	);
+
+	// Hero tagline
+	$wp_customize->add_setting(
+		'ufi_hero_tagline',
+		array(
+			'default'           => 'Prague Independent Electronic Music Artist · DJ · Producer ·',
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'ufi_hero_tagline',
+		array(
+			'label'   => __( 'Hero Tagline', 'ufi-daman' ),
+			'section' => 'ufi_hero',
+			'type'    => 'text',
+		)
+	);
+
+	// Hero role line
+	$wp_customize->add_setting(
+		'ufi_hero_role',
+		array(
+			'default'           => 'Multiple Sclerosis fighter',
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'ufi_hero_role',
+		array(
+			'label'   => __( 'Hero Role / Subtitle', 'ufi-daman' ),
+			'section' => 'ufi_hero',
+			'type'    => 'text',
+		)
+	);
+
+	// -------------------------------------------------------------------------
 	// Section: Contact & Social
 	// -------------------------------------------------------------------------
 	$wp_customize->add_section(

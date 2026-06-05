@@ -15,15 +15,21 @@ $fb_url          = get_theme_mod( 'ufi_fb_url', 'https://www.facebook.com/ufi.da
 $ig_url          = get_theme_mod( 'ufi_ig_url', 'https://www.instagram.com/ufi.daman' );
 $pk_url          = get_theme_mod( 'ufi_presskit_url', 'https://drive.google.com/drive/folders/1BA8sYOZWWrFfgCezI_Dr7Xrk2-Ju-gpX' );
 $email           = get_theme_mod( 'ufi_email', 'booking@ufidaman.com' );
+$hero_bg         = get_theme_mod( 'ufi_hero_bg_image', '' );
+$hero_tagline    = get_theme_mod( 'ufi_hero_tagline', 'Prague Independent Electronic Music Artist · DJ · Producer ·' );
+$hero_role       = get_theme_mod( 'ufi_hero_role', 'Multiple Sclerosis fighter' );
+$hero_style      = $hero_bg
+	? ' style="background-image:linear-gradient(rgba(10,10,10,.75),rgba(10,10,10,.95)),url(' . esc_url( $hero_bg ) . ')"'
+	: '';
 ?>
 
 <!-- ======================================================
      HERO
      ====================================================== -->
-<section class="hero">
+<section class="hero"<?php echo $hero_style; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above ?>>
 	<div class="hero-bg-number">82</div>
 	<div class="hero-content">
-		<p class="hero-index"><?php esc_html_e( 'Prague Independent Electronic Music Artist · DJ · Producer ·', 'ufi-daman' ); ?></p>
+		<p class="hero-index"><?php echo esc_html( $hero_tagline ); ?></p>
 		<h1 class="hero-name">
 			UFI
 			<span class="highlight">DA MAN</span>
@@ -31,7 +37,7 @@ $email           = get_theme_mod( 'ufi_email', 'booking@ufidaman.com' );
 	</div>
 	<div class="hero-bottom">
 		<p class="hero-role">
-			<?php esc_html_e( 'Multiple Sclerosis fighter', 'ufi-daman' ); ?><br>
+			<?php echo esc_html( $hero_role ); ?><br>
 			<a href="<?php echo esc_url( $soundevents_url ); ?>" target="_blank" rel="noopener noreferrer" class="sound-link"><strong><?php esc_html_e( 'SOUND', 'ufi-daman' ); ?></strong></a> <?php esc_html_e( 'events resident', 'ufi-daman' ); ?>
 		</p>
 		<p class="hero-scroll"><?php esc_html_e( 'Scroll', 'ufi-daman' ); ?></p>
@@ -128,14 +134,22 @@ $email           = get_theme_mod( 'ufi_email', 'booking@ufidaman.com' );
 	</div>
 
 	<?php
-	// Upcoming events
+	// Upcoming events — ordered by date ASC (soonest first)
 	$upcoming_query = new WP_Query( array(
 		'post_type'      => 'ufi_event',
 		'posts_per_page' => -1,
-		'meta_key'       => '_ufi_event_status',
-		'meta_value'     => 'upcoming',
-		'orderby'        => 'meta_value',
-		'order'          => 'ASC',
+		'meta_query'     => array(
+			'relation'      => 'AND',
+			'status_clause' => array(
+				'key'   => '_ufi_event_status',
+				'value' => 'upcoming',
+			),
+			'date_clause'   => array(
+				'key'     => '_ufi_event_date',
+				'compare' => 'EXISTS',
+			),
+		),
+		'orderby'        => array( 'date_clause' => 'ASC' ),
 	) );
 	?>
 
@@ -179,20 +193,22 @@ $email           = get_theme_mod( 'ufi_email', 'booking@ufidaman.com' );
 	<?php endif; ?>
 
 	<?php
-	// Past events
+	// Past events — ordered by date DESC (most recent first)
 	$past_query = new WP_Query( array(
 		'post_type'      => 'ufi_event',
 		'posts_per_page' => -1,
-		'meta_key'       => '_ufi_event_status',
-		'meta_value'     => 'past',
-		'orderby'        => 'meta_value_num',
 		'meta_query'     => array(
-			array(
-				'key'     => '_ufi_event_year',
-				'type'    => 'NUMERIC',
+			'relation'      => 'AND',
+			'status_clause' => array(
+				'key'   => '_ufi_event_status',
+				'value' => 'past',
+			),
+			'date_clause'   => array(
+				'key'     => '_ufi_event_date',
+				'compare' => 'EXISTS',
 			),
 		),
-		'order'          => 'DESC',
+		'orderby'        => array( 'date_clause' => 'DESC' ),
 	) );
 	?>
 
@@ -320,6 +336,47 @@ $email           = get_theme_mod( 'ufi_email', 'booking@ufidaman.com' );
 	<?php endif; ?>
 	</div>
 </section>
+
+<!-- ======================================================
+     GALLERY
+     ====================================================== -->
+<?php
+$gallery_query = new WP_Query( array(
+	'post_type'      => 'ufi_photo',
+	'posts_per_page' => -1,
+	'meta_key'       => '_ufi_photo_order',
+	'orderby'        => 'meta_value_num',
+	'order'          => 'ASC',
+) );
+if ( $gallery_query->have_posts() ) :
+?>
+<section class="gallery-section" id="gallery">
+	<div class="gigs-header reveal">
+		<h2 class="gigs-title"><?php esc_html_e( 'Gallery', 'ufi-daman' ); ?></h2>
+	</div>
+	<div class="gallery-grid">
+		<?php while ( $gallery_query->have_posts() ) : $gallery_query->the_post(); ?>
+		<?php
+		$thumb = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+		$full  = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+		if ( ! $thumb ) {
+			continue;
+		}
+		$caption = get_the_title();
+		?>
+		<div class="gallery-item reveal" tabindex="0" role="button" aria-label="<?php echo esc_attr( $caption ?: __( 'View photo', 'ufi-daman' ) ); ?>">
+			<img src="<?php echo esc_url( $thumb ); ?>"
+			     data-full="<?php echo esc_url( $full ); ?>"
+			     alt="<?php echo esc_attr( $caption ); ?>"
+			     loading="lazy">
+			<?php if ( $caption ) : ?>
+			<div class="gallery-caption"><?php echo esc_html( $caption ); ?></div>
+			<?php endif; ?>
+		</div>
+		<?php endwhile; wp_reset_postdata(); ?>
+	</div>
+</section>
+<?php endif; ?>
 
 <!-- ======================================================
      CONTACT

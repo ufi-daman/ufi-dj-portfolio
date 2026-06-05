@@ -98,6 +98,7 @@ function ufi_render_event_meta_box( $post ) {
 	wp_nonce_field( 'ufi_save_event_meta', 'ufi_event_meta_nonce' );
 
 	$status     = get_post_meta( $post->ID, '_ufi_event_status', true );
+	$date       = get_post_meta( $post->ID, '_ufi_event_date', true ) ?: date( 'Y-m-d' );
 	$day        = get_post_meta( $post->ID, '_ufi_event_day', true );
 	$month      = get_post_meta( $post->ID, '_ufi_event_month', true );
 	$year       = get_post_meta( $post->ID, '_ufi_event_year', true );
@@ -113,6 +114,13 @@ function ufi_render_event_meta_box( $post ) {
 					<option value="upcoming" <?php selected( $status, 'upcoming' ); ?>><?php esc_html_e( 'Upcoming', 'ufi-daman' ); ?></option>
 					<option value="past" <?php selected( $status, 'past' ); ?>><?php esc_html_e( 'Past', 'ufi-daman' ); ?></option>
 				</select>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="ufi_event_date"><?php esc_html_e( 'Date (for ordering)', 'ufi-daman' ); ?></label></th>
+			<td>
+				<input type="date" id="ufi_event_date" name="ufi_event_date" value="<?php echo esc_attr( $date ); ?>" class="regular-text" />
+				<p class="description"><?php esc_html_e( 'Used for correct chronological ordering.', 'ufi-daman' ); ?></p>
 			</td>
 		</tr>
 		<tr>
@@ -172,6 +180,7 @@ function ufi_save_event_meta( $post_id ) {
 
 	$fields = array(
 		'ufi_event_status'     => '_ufi_event_status',
+		'ufi_event_date'       => '_ufi_event_date',
 		'ufi_event_day'        => '_ufi_event_day',
 		'ufi_event_month'      => '_ufi_event_month',
 		'ufi_event_year'       => '_ufi_event_year',
@@ -296,6 +305,96 @@ function ufi_save_mix_meta( $post_id ) {
 add_action( 'save_post_ufi_mix', 'ufi_save_mix_meta' );
 
 // -------------------------------------------------------------------------
-// 5. Customizer
+// 5. CPT: ufi_photo (Gallery)
+// -------------------------------------------------------------------------
+function ufi_register_cpt_photo() {
+	register_post_type(
+		'ufi_photo',
+		array(
+			'labels'    => array(
+				'name'               => __( 'Gallery', 'ufi-daman' ),
+				'singular_name'      => __( 'Photo', 'ufi-daman' ),
+				'add_new_item'       => __( 'Add New Photo', 'ufi-daman' ),
+				'edit_item'          => __( 'Edit Photo', 'ufi-daman' ),
+				'not_found'          => __( 'No photos found', 'ufi-daman' ),
+				'menu_name'          => __( 'Gallery', 'ufi-daman' ),
+			),
+			'public'    => false,
+			'show_ui'   => true,
+			'menu_icon' => 'dashicons-format-image',
+			'supports'  => array( 'title', 'thumbnail' ),
+			'rewrite'   => false,
+		)
+	);
+}
+add_action( 'init', 'ufi_register_cpt_photo' );
+
+function ufi_add_photo_meta_box() {
+	add_meta_box(
+		'ufi_photo_order',
+		__( 'Display Order', 'ufi-daman' ),
+		'ufi_render_photo_meta_box',
+		'ufi_photo',
+		'side',
+		'default'
+	);
+}
+add_action( 'add_meta_boxes', 'ufi_add_photo_meta_box' );
+
+function ufi_render_photo_meta_box( $post ) {
+	wp_nonce_field( 'ufi_save_photo_meta', 'ufi_photo_meta_nonce' );
+	$order = get_post_meta( $post->ID, '_ufi_photo_order', true );
+	?>
+	<label>
+		<?php esc_html_e( 'Order:', 'ufi-daman' ); ?>
+		<input type="number" name="ufi_photo_order" value="<?php echo esc_attr( $order ); ?>" min="1" class="small-text" style="margin-left:8px" />
+	</label>
+	<p class="description" style="margin-top:8px"><?php esc_html_e( '1 = first in gallery. Caption = post Title.', 'ufi-daman' ); ?></p>
+	<?php
+}
+
+function ufi_save_photo_meta( $post_id ) {
+	if ( ! isset( $_POST['ufi_photo_meta_nonce'] ) ) {
+		return;
+	}
+	if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ufi_photo_meta_nonce'] ) ), 'ufi_save_photo_meta' ) ) {
+		return;
+	}
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+	if ( isset( $_POST['ufi_photo_order'] ) ) {
+		update_post_meta( $post_id, '_ufi_photo_order', absint( $_POST['ufi_photo_order'] ) );
+	}
+}
+add_action( 'save_post_ufi_photo', 'ufi_save_photo_meta' );
+
+// -------------------------------------------------------------------------
+// 6. Customizer
 // -------------------------------------------------------------------------
 require get_template_directory() . '/inc/customizer.php';
+
+// -------------------------------------------------------------------------
+// 7. Auto-create Bio page on theme activation
+// -------------------------------------------------------------------------
+function ufi_create_default_pages() {
+	if ( get_page_by_path( 'bio' ) ) {
+		return;
+	}
+	wp_insert_post( array(
+		'post_title'   => 'Bio',
+		'post_name'    => 'bio',
+		'post_status'  => 'publish',
+		'post_type'    => 'page',
+		'post_content' =>
+			"<p><strong>UFI DA MAN</strong> is a Prague DJ and producer who constantly moves on the edge of the underground and mainstream scene. He found a relationship with electronic music in <strong>1993</strong> when he first started experimenting with Tracker-type programs.</p>\n\n" .
+			"<p>Today, he mainly produces in <strong>Ableton</strong> in combination with <strong>NI Maschine</strong> and presents his work independently on SoundCloud, where he also searches for the latest productions of underground artists, which he likes to include in his sets since <strong>2006</strong> — for the first time behind the mix at Smart Club ST.YX.</p>\n\n" .
+			"<p>For a long time, Ufi was a resident of the Prague club <strong>TOUSTER</strong>, where he had the opportunity to play not only with top Czech DJs but also with foreign guests. Currently a resident DJ of <strong>SOUND</strong>. He performs regularly at Roxy Prague, Roxy Room8, Radost FX, Cross][Club, Duplex Rooftop Venue, Hilton Cloud9, Vinyl Bar Prague, Beach Park Mlekojedy, U Bukanyra, NoD, Akropolis, Jilská 22 and at Centrála.</p>\n\n" .
+			"<p>Even though in <strong>2016</strong> all seemed lost, thanks to the diagnosis of multiple sclerosis, he is back on the scene. Since <strong>2019</strong> participates in the organization of the electronic day/night open-air festival <strong>Sound</strong>.</p>\n\n" .
+			"<p>Beyond the club scene, his sets have landed on the stages of some of the most celebrated Czech open-air festivals and events — <strong>SOUND</strong>, <strong>DARKSHIRE</strong>, <strong>SVOJŠICE</strong>, <strong>APOKALYPSA</strong>, <strong>MÁCHÁČ</strong>, <strong>CINDA</strong> and <strong>DOCK TOWN</strong>. Each stage a different crowd, the same relentless energy. He is always looking forward to the next opportunity to connect, move people and explore new sonic territory.</p>",
+	) );
+}
+add_action( 'after_switch_theme', 'ufi_create_default_pages' );
