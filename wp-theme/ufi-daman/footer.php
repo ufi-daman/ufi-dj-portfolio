@@ -37,13 +37,17 @@ if (lb) {
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox(); });
 }
 
-// Past events — year accordion toggle
-document.querySelectorAll('.year-toggle').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    const group = btn.closest('.year-group');
-    const isOpen = group.classList.toggle('open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
+// Past events — activate accordion (progressive enhancement) + collapse all but newest
+document.querySelectorAll('.years-accordion').forEach(function(acc) {
+  acc.classList.add('js');
+});
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.year-toggle');
+  if (!btn) return;
+  const group = btn.closest('.year-group');
+  if (!group) return;
+  const isOpen = group.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
 
 // Custom cursor with requestAnimationFrame for performance

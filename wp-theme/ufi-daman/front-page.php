@@ -237,7 +237,7 @@ $hero_style      = $hero_bg
 		<div class="years-accordion">
 			<?php foreach ( $by_year as $yr => $gigs ) : ?>
 				<?php $open = $is_first ? ' open' : ''; $is_first = false; ?>
-				<div class="year-group reveal<?php echo esc_attr( $open ); ?>">
+				<div class="year-group<?php echo esc_attr( $open ); ?>">
 					<button type="button" class="year-toggle" aria-expanded="<?php echo $open ? 'true' : 'false'; ?>">
 						<span class="year-label"><?php echo esc_html( $yr ); ?></span>
 						<span class="year-count"><?php echo esc_html( count( $gigs ) ); ?> <?php esc_html_e( 'events', 'ufi-daman' ); ?></span>

@@ -163,8 +163,11 @@ Tags: music, portfolio, dark, one-page, custom-colors
   .year-toggle .year-count { font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray); }
   .year-toggle .year-arrow { margin-left:auto;font-size:32px;line-height:1;color:var(--accent);transition:transform .3s ease; }
   .year-group.open .year-toggle .year-arrow { transform:rotate(45deg); }
-  .year-events { display:none;padding-bottom:12px; }
-  .year-group.open .year-events { display:block; }
+  .year-events { padding-bottom:12px; }                                   /* visible by default (no-JS fallback) */
+  .years-accordion.js .year-events { display:none; }                      /* collapse only when JS is active */
+  .years-accordion.js .year-group.open .year-events { display:block; }
+  .years-accordion.js .year-toggle { cursor:pointer; }
+  .years-accordion:not(.js) .year-arrow { display:none; }                 /* hide +/× when non-interactive */
   .year-events .gig-row { grid-template-columns:1fr auto;gap:24px;padding:24px 0; }
   .year-events .gig-row:last-child { border-bottom:none; }
   @media(max-width:768px) { .year-events .gig-row { grid-template-columns:1fr; } .year-toggle { padding:22px 0; } }
