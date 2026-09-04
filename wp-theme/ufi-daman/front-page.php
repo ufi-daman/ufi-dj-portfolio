@@ -284,9 +284,13 @@ $hero_style      = $hero_bg
 					<?php endif; ?>
 				</div>
 				<?php if ( $sc_embed ) : ?>
-				<iframe scrolling="no" allow="autoplay" loading="lazy"
-					src="<?php echo esc_url( $sc_embed ); ?>"
-					height="166"></iframe>
+					<?php if ( false !== stripos( $sc_embed, '<iframe' ) ) : ?>
+						<?php echo wp_kses( $sc_embed, ufi_allowed_embed_html() ); ?>
+					<?php else : ?>
+						<iframe scrolling="no" allow="autoplay" loading="lazy"
+							src="<?php echo esc_url( $sc_embed ); ?>"
+							height="166"></iframe>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 		<?php endwhile; ?>

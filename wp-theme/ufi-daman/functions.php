@@ -268,10 +268,10 @@ function ufi_render_mix_meta_box( $post ) {
 			</td>
 		</tr>
 		<tr>
-			<th><label for="ufi_mix_sc_url"><?php esc_html_e( 'SoundCloud Embed URL', 'ufi-daman' ); ?></label></th>
+			<th><label for="ufi_mix_sc_url"><?php esc_html_e( 'SoundCloud Embed', 'ufi-daman' ); ?></label></th>
 			<td>
-				<input type="url" id="ufi_mix_sc_url" name="ufi_mix_sc_url" value="<?php echo esc_attr( $sc_url ); ?>" placeholder="https://w.soundcloud.com/player/?url=..." class="large-text" />
-				<p class="description"><?php esc_html_e( 'Full SoundCloud iframe src URL.', 'ufi-daman' ); ?></p>
+				<textarea id="ufi_mix_sc_url" name="ufi_mix_sc_url" rows="5" class="large-text" placeholder="&lt;iframe ... src=&quot;https://w.soundcloud.com/player/?url=...&quot;&gt;&lt;/iframe&gt;"><?php echo esc_textarea( $sc_url ); ?></textarea>
+				<p class="description"><?php esc_html_e( 'Paste the full embed code from SoundCloud → Share → Embed (or Mixcloud/YouTube). A plain player URL also works.', 'ufi-daman' ); ?></p>
 			</td>
 		</tr>
 	</table>
@@ -299,10 +299,39 @@ function ufi_save_mix_meta( $post_id ) {
 		update_post_meta( $post_id, '_ufi_mix_detail', sanitize_text_field( wp_unslash( $_POST['ufi_mix_detail'] ) ) );
 	}
 	if ( isset( $_POST['ufi_mix_sc_url'] ) ) {
-		update_post_meta( $post_id, '_ufi_mix_sc_url', esc_url_raw( wp_unslash( $_POST['ufi_mix_sc_url'] ) ) );
+		$raw = trim( wp_unslash( $_POST['ufi_mix_sc_url'] ) );
+		if ( false !== stripos( $raw, '<iframe' ) ) {
+			// Full embed code: keep the iframe, strip everything else.
+			$value = wp_kses( $raw, ufi_allowed_embed_html() );
+		} else {
+			// Plain player URL.
+			$value = esc_url_raw( $raw );
+		}
+		update_post_meta( $post_id, '_ufi_mix_sc_url', $value );
 	}
 }
 add_action( 'save_post_ufi_mix', 'ufi_save_mix_meta' );
+
+/**
+ * Allowed HTML for embedded players (iframe allowlist).
+ */
+function ufi_allowed_embed_html() {
+	return array(
+		'iframe' => array(
+			'src'             => true,
+			'width'           => true,
+			'height'          => true,
+			'frameborder'     => true,
+			'allow'           => true,
+			'allowfullscreen' => true,
+			'scrolling'       => true,
+			'loading'         => true,
+			'title'           => true,
+			'style'           => true,
+			'referrerpolicy'  => true,
+		),
+	);
+}
 
 // -------------------------------------------------------------------------
 // 5. CPT: ufi_photo (Gallery)
