@@ -215,26 +215,52 @@ $hero_style      = $hero_bg
 	<div class="events-sub-label reveal" style="margin-top:60px;"><?php esc_html_e( 'Past', 'ufi-daman' ); ?></div>
 
 	<?php if ( $past_query->have_posts() ) : ?>
-		<?php while ( $past_query->have_posts() ) : $past_query->the_post(); ?>
-			<?php
-			$year     = get_post_meta( get_the_ID(), '_ufi_event_year', true );
-			$location = get_post_meta( get_the_ID(), '_ufi_event_location', true );
-			$tag      = get_post_meta( get_the_ID(), '_ufi_event_tag', true );
-			?>
-			<div class="gig-row reveal">
-				<div class="gig-year"><?php echo esc_html( $year ); ?></div>
-				<div class="gig-info">
-					<div class="gig-venue"><?php the_title(); ?></div>
-					<?php if ( $location ) : ?>
-					<div class="gig-location"><?php echo esc_html( $location ); ?></div>
-					<?php endif; ?>
+		<?php
+		// Group past events by year (query is already ordered by date DESC).
+		$by_year = array();
+		while ( $past_query->have_posts() ) :
+			$past_query->the_post();
+			$year = get_post_meta( get_the_ID(), '_ufi_event_year', true );
+			if ( ! $year ) {
+				$year = get_the_date( 'Y' );
+			}
+			$by_year[ $year ][] = array(
+				'title'    => get_the_title(),
+				'location' => get_post_meta( get_the_ID(), '_ufi_event_location', true ),
+				'tag'      => get_post_meta( get_the_ID(), '_ufi_event_tag', true ),
+			);
+		endwhile;
+		wp_reset_postdata();
+		krsort( $by_year, SORT_NUMERIC );
+		$is_first = true;
+		?>
+		<div class="years-accordion">
+			<?php foreach ( $by_year as $yr => $gigs ) : ?>
+				<?php $open = $is_first ? ' open' : ''; $is_first = false; ?>
+				<div class="year-group reveal<?php echo esc_attr( $open ); ?>">
+					<button type="button" class="year-toggle" aria-expanded="<?php echo $open ? 'true' : 'false'; ?>">
+						<span class="year-label"><?php echo esc_html( $yr ); ?></span>
+						<span class="year-count"><?php echo esc_html( count( $gigs ) ); ?> <?php esc_html_e( 'events', 'ufi-daman' ); ?></span>
+						<span class="year-arrow" aria-hidden="true">+</span>
+					</button>
+					<div class="year-events">
+						<?php foreach ( $gigs as $g ) : ?>
+						<div class="gig-row">
+							<div class="gig-info">
+								<div class="gig-venue"><?php echo esc_html( $g['title'] ); ?></div>
+								<?php if ( $g['location'] ) : ?>
+								<div class="gig-location"><?php echo esc_html( $g['location'] ); ?></div>
+								<?php endif; ?>
+							</div>
+							<?php if ( $g['tag'] ) : ?>
+							<div class="gig-tag"><?php echo esc_html( $g['tag'] ); ?></div>
+							<?php endif; ?>
+						</div>
+						<?php endforeach; ?>
+					</div>
 				</div>
-				<?php if ( $tag ) : ?>
-				<div class="gig-tag"><?php echo esc_html( $tag ); ?></div>
-				<?php endif; ?>
-			</div>
-		<?php endwhile; ?>
-		<?php wp_reset_postdata(); ?>
+			<?php endforeach; ?>
+		</div>
 	<?php else : ?>
 		<div class="gig-row no-events reveal">
 			<div class="gig-info">

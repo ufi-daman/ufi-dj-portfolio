@@ -155,6 +155,20 @@ Tags: music, portfolio, dark, one-page, custom-colors
   .events-sub-label { font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:16px; }
   .events-sub-label::before { content:'';width:40px;height:1px;background:var(--accent); }
 
+  /* Past events — year accordion */
+  .year-group { border-bottom:1px solid var(--border); }
+  .year-toggle { width:100%;display:flex;align-items:baseline;gap:24px;background:none;border:none;cursor:pointer;padding:28px 0;color:var(--white);text-align:left;font-family:'Bebas Neue',sans-serif;transition:opacity .2s; }
+  .year-toggle:hover { opacity:.85; }
+  .year-toggle .year-label { font-size:clamp(36px,5vw,56px);line-height:1;letter-spacing:.02em;color:var(--accent); }
+  .year-toggle .year-count { font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray); }
+  .year-toggle .year-arrow { margin-left:auto;font-size:32px;line-height:1;color:var(--accent);transition:transform .3s ease; }
+  .year-group.open .year-toggle .year-arrow { transform:rotate(45deg); }
+  .year-events { display:none;padding-bottom:12px; }
+  .year-group.open .year-events { display:block; }
+  .year-events .gig-row { grid-template-columns:1fr auto;gap:24px;padding:24px 0; }
+  .year-events .gig-row:last-child { border-bottom:none; }
+  @media(max-width:768px) { .year-events .gig-row { grid-template-columns:1fr; } .year-toggle { padding:22px 0; } }
+
   /* Upcoming gig date display */
   .gig-date { display:flex;flex-direction:column;align-items:flex-start;line-height:1; }
   .gig-day { font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);line-height:1; }

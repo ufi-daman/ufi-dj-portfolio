@@ -37,6 +37,15 @@ if (lb) {
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox(); });
 }
 
+// Past events — year accordion toggle
+document.querySelectorAll('.year-toggle').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    const group = btn.closest('.year-group');
+    const isOpen = group.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+
 // Custom cursor with requestAnimationFrame for performance
 const cursor = document.getElementById('cursor');
 let mouseX = 0, mouseY = 0;
