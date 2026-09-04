@@ -20,6 +20,7 @@
 		<li><a href="#about"><?php esc_html_e( 'About', 'ufi-daman' ); ?></a></li>
 		<li><a href="#events"><?php esc_html_e( 'Events', 'ufi-daman' ); ?></a></li>
 		<li><a href="#mixes"><?php esc_html_e( 'Mixes', 'ufi-daman' ); ?></a></li>
+		<li><a href="#tracks"><?php esc_html_e( 'Tracks', 'ufi-daman' ); ?></a></li>
 		<li><a href="#contact"><?php esc_html_e( 'Contact', 'ufi-daman' ); ?></a></li>
 	</ul>
 
@@ -72,5 +73,6 @@
 	<a href="#about"><?php esc_html_e( 'About', 'ufi-daman' ); ?></a>
 	<a href="#events"><?php esc_html_e( 'Events', 'ufi-daman' ); ?></a>
 	<a href="#mixes"><?php esc_html_e( 'Mixes', 'ufi-daman' ); ?></a>
+	<a href="#tracks"><?php esc_html_e( 'Tracks', 'ufi-daman' ); ?></a>
 	<a href="#contact"><?php esc_html_e( 'Contact', 'ufi-daman' ); ?></a>
 </div>

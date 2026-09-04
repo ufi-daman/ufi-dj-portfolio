@@ -334,6 +334,114 @@ function ufi_allowed_embed_html() {
 }
 
 // -------------------------------------------------------------------------
+// 4b. CPT: ufi_track (own productions)
+// -------------------------------------------------------------------------
+function ufi_register_cpt_track() {
+	$labels = array(
+		'name'               => __( 'Tracks', 'ufi-daman' ),
+		'singular_name'      => __( 'Track', 'ufi-daman' ),
+		'add_new'            => __( 'Add New', 'ufi-daman' ),
+		'add_new_item'       => __( 'Add New Track', 'ufi-daman' ),
+		'edit_item'          => __( 'Edit Track', 'ufi-daman' ),
+		'new_item'           => __( 'New Track', 'ufi-daman' ),
+		'view_item'          => __( 'View Track', 'ufi-daman' ),
+		'search_items'       => __( 'Search Tracks', 'ufi-daman' ),
+		'not_found'          => __( 'No tracks found', 'ufi-daman' ),
+		'not_found_in_trash' => __( 'No tracks found in Trash', 'ufi-daman' ),
+		'menu_name'          => __( 'Tracks', 'ufi-daman' ),
+	);
+
+	register_post_type(
+		'ufi_track',
+		array(
+			'labels'    => $labels,
+			'public'    => false,
+			'show_ui'   => true,
+			'menu_icon' => 'dashicons-album',
+			'supports'  => array( 'title' ),
+			'rewrite'   => false,
+		)
+	);
+}
+add_action( 'init', 'ufi_register_cpt_track' );
+
+function ufi_add_track_meta_box() {
+	add_meta_box(
+		'ufi_track_details',
+		__( 'Track Details', 'ufi-daman' ),
+		'ufi_render_track_meta_box',
+		'ufi_track',
+		'normal',
+		'high'
+	);
+}
+add_action( 'add_meta_boxes', 'ufi_add_track_meta_box' );
+
+function ufi_render_track_meta_box( $post ) {
+	wp_nonce_field( 'ufi_save_track_meta', 'ufi_track_meta_nonce' );
+
+	$order  = get_post_meta( $post->ID, '_ufi_track_order', true );
+	$detail = get_post_meta( $post->ID, '_ufi_track_detail', true );
+	$embed  = get_post_meta( $post->ID, '_ufi_track_embed', true );
+	?>
+	<table class="form-table">
+		<tr>
+			<th><label for="ufi_track_order"><?php esc_html_e( 'Order', 'ufi-daman' ); ?></label></th>
+			<td>
+				<input type="number" id="ufi_track_order" name="ufi_track_order" value="<?php echo esc_attr( $order ); ?>" min="1" class="small-text" />
+				<p class="description"><?php esc_html_e( 'Display order (1 = first).', 'ufi-daman' ); ?></p>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="ufi_track_detail"><?php esc_html_e( 'Detail', 'ufi-daman' ); ?></label></th>
+			<td>
+				<input type="text" id="ufi_track_detail" name="ufi_track_detail" value="<?php echo esc_attr( $detail ); ?>" placeholder="<?php esc_attr_e( 'e.g. 2025 · Original / Ableton', 'ufi-daman' ); ?>" class="regular-text" />
+			</td>
+		</tr>
+		<tr>
+			<th><label for="ufi_track_embed"><?php esc_html_e( 'Embed', 'ufi-daman' ); ?></label></th>
+			<td>
+				<textarea id="ufi_track_embed" name="ufi_track_embed" rows="5" class="large-text" placeholder="&lt;iframe ... src=&quot;https://w.soundcloud.com/player/?url=...&quot;&gt;&lt;/iframe&gt;"><?php echo esc_textarea( $embed ); ?></textarea>
+				<p class="description"><?php esc_html_e( 'Paste the full embed code from SoundCloud / Spotify / Bandcamp / YouTube. A plain player URL also works.', 'ufi-daman' ); ?></p>
+			</td>
+		</tr>
+	</table>
+	<?php
+}
+
+function ufi_save_track_meta( $post_id ) {
+	if ( ! isset( $_POST['ufi_track_meta_nonce'] ) ) {
+		return;
+	}
+	if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ufi_track_meta_nonce'] ) ), 'ufi_save_track_meta' ) ) {
+		return;
+	}
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+
+	if ( isset( $_POST['ufi_track_order'] ) ) {
+		update_post_meta( $post_id, '_ufi_track_order', absint( $_POST['ufi_track_order'] ) );
+	}
+	if ( isset( $_POST['ufi_track_detail'] ) ) {
+		update_post_meta( $post_id, '_ufi_track_detail', sanitize_text_field( wp_unslash( $_POST['ufi_track_detail'] ) ) );
+	}
+	if ( isset( $_POST['ufi_track_embed'] ) ) {
+		$raw = trim( wp_unslash( $_POST['ufi_track_embed'] ) );
+		if ( false !== stripos( $raw, '<iframe' ) ) {
+			$value = wp_kses( $raw, ufi_allowed_embed_html() );
+		} else {
+			$value = esc_url_raw( $raw );
+		}
+		update_post_meta( $post_id, '_ufi_track_embed', $value );
+	}
+}
+add_action( 'save_post_ufi_track', 'ufi_save_track_meta' );
+
+// -------------------------------------------------------------------------
 // 5. CPT: ufi_photo (Gallery)
 // -------------------------------------------------------------------------
 function ufi_register_cpt_photo() {

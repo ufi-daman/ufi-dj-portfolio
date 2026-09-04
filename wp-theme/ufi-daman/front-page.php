@@ -342,6 +342,58 @@ $hero_style      = $hero_bg
 </section>
 
 <!-- ======================================================
+     TRACKS
+     ====================================================== -->
+<?php
+$tracks_query = new WP_Query( array(
+	'post_type'      => 'ufi_track',
+	'posts_per_page' => -1,
+	'meta_key'       => '_ufi_track_order',
+	'orderby'        => 'meta_value_num',
+	'order'          => 'ASC',
+) );
+if ( $tracks_query->have_posts() ) :
+	$total_tracks  = $tracks_query->found_posts;
+	$track_counter = 0;
+?>
+<section class="mixes tracks" id="tracks">
+	<div class="mixes-header reveal">
+		<h2 class="mixes-title"><?php esc_html_e( 'Original', 'ufi-daman' ); ?><br><?php esc_html_e( 'Tracks', 'ufi-daman' ); ?></h2>
+		<a href="<?php echo esc_url( $sc_url ); ?>" target="_blank" rel="noopener noreferrer" class="sc-all"><?php esc_html_e( 'All on SoundCloud →', 'ufi-daman' ); ?></a>
+	</div>
+
+	<div class="mixes-grid">
+		<?php while ( $tracks_query->have_posts() ) : $tracks_query->the_post(); ?>
+			<?php
+			$track_counter++;
+			$t_detail = get_post_meta( get_the_ID(), '_ufi_track_detail', true );
+			$t_embed  = get_post_meta( get_the_ID(), '_ufi_track_embed', true );
+			?>
+			<div class="mix-card reveal">
+				<div>
+					<div class="mix-number"><?php echo esc_html( sprintf( '%02d / %02d', $track_counter, $total_tracks ) ); ?></div>
+					<div class="mix-name"><?php the_title(); ?></div>
+					<?php if ( $t_detail ) : ?>
+					<div class="mix-detail"><?php echo esc_html( $t_detail ); ?></div>
+					<?php endif; ?>
+				</div>
+				<?php if ( $t_embed ) : ?>
+					<?php if ( false !== stripos( $t_embed, '<iframe' ) ) : ?>
+						<?php echo wp_kses( $t_embed, ufi_allowed_embed_html() ); ?>
+					<?php else : ?>
+						<iframe scrolling="no" allow="autoplay" loading="lazy"
+							src="<?php echo esc_url( $t_embed ); ?>"
+							height="166"></iframe>
+					<?php endif; ?>
+				<?php endif; ?>
+			</div>
+		<?php endwhile; ?>
+		<?php wp_reset_postdata(); ?>
+	</div>
+</section>
+<?php endif; ?>
+
+<!-- ======================================================
      GALLERY
      ====================================================== -->
 <?php
