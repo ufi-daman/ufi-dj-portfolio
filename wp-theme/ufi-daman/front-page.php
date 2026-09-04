@@ -53,34 +53,35 @@ $hero_next = new WP_Query( array(
 			UFI
 			<span class="highlight">DA MAN</span>
 		</h1>
-		<?php if ( $hero_next->have_posts() ) : $hero_next->the_post();
-			$hn_date   = get_post_meta( get_the_ID(), '_ufi_event_date', true );
-			$hn_day    = get_post_meta( get_the_ID(), '_ufi_event_day', true );
-			$hn_month  = get_post_meta( get_the_ID(), '_ufi_event_month', true );
-			$hn_loc    = get_post_meta( get_the_ID(), '_ufi_event_location', true );
-			$hn_ticket = get_post_meta( get_the_ID(), '_ufi_event_ticket_url', true );
-			if ( ( ! $hn_day || ! $hn_month ) && $hn_date ) {
-				$ts       = strtotime( $hn_date );
-				$hn_day   = $hn_day ? $hn_day : gmdate( 'j', $ts );
-				$hn_month = $hn_month ? $hn_month : strtoupper( gmdate( 'M', $ts ) );
-			}
-			$hn_href = $hn_ticket ? $hn_ticket : '#events';
-			$hn_ext  = $hn_ticket ? ' target="_blank" rel="noopener noreferrer"' : '';
-			?>
-			<a class="hero-next" href="<?php echo esc_url( $hn_href ); ?>"<?php echo $hn_ext; // phpcs:ignore ?>>
-				<span class="hero-next-label"><?php esc_html_e( 'Next gig', 'ufi-daman' ); ?></span>
-				<span class="hero-next-date"><?php echo esc_html( trim( $hn_day . ' ' . $hn_month ) ); ?></span>
-				<span class="hero-next-venue"><?php the_title(); ?></span>
-				<?php if ( $hn_loc ) : ?><span class="hero-next-loc"><?php echo esc_html( $hn_loc ); ?></span><?php endif; ?>
-				<span class="hero-next-arrow" aria-hidden="true">→</span>
-			</a>
-		<?php wp_reset_postdata(); endif; ?>
 	</div>
 	<div class="hero-bottom">
-		<p class="hero-role">
-			<?php echo esc_html( $hero_role ); ?><br>
-			<a href="<?php echo esc_url( $soundevents_url ); ?>" target="_blank" rel="noopener noreferrer" class="sound-link"><strong><?php esc_html_e( 'SOUND', 'ufi-daman' ); ?></strong></a> <?php esc_html_e( 'events resident', 'ufi-daman' ); ?>
-		</p>
+		<div class="hero-bottom-info">
+			<?php if ( $hero_next->have_posts() ) : $hero_next->the_post();
+				$hn_date   = get_post_meta( get_the_ID(), '_ufi_event_date', true );
+				$hn_day    = get_post_meta( get_the_ID(), '_ufi_event_day', true );
+				$hn_month  = get_post_meta( get_the_ID(), '_ufi_event_month', true );
+				$hn_loc    = get_post_meta( get_the_ID(), '_ufi_event_location', true );
+				if ( ( ! $hn_day || ! $hn_month ) && $hn_date ) {
+					$ts       = strtotime( $hn_date );
+					$hn_day   = $hn_day ? $hn_day : gmdate( 'j', $ts );
+					$hn_month = $hn_month ? $hn_month : strtoupper( gmdate( 'M', $ts ) );
+				}
+				?>
+				<a class="hero-next" href="#events">
+					<span class="hero-next-tag"><?php esc_html_e( 'Next', 'ufi-daman' ); ?></span>
+					<span class="hero-next-date"><?php echo esc_html( trim( $hn_day . ' ' . $hn_month ) ); ?></span>
+					<span class="hero-next-body">
+						<span class="hero-next-venue"><?php the_title(); ?></span>
+						<?php if ( $hn_loc ) : ?><span class="hero-next-loc"><?php echo esc_html( $hn_loc ); ?></span><?php endif; ?>
+					</span>
+					<span class="hero-next-arrow" aria-hidden="true">→</span>
+				</a>
+			<?php wp_reset_postdata(); endif; ?>
+			<p class="hero-role">
+				<?php echo esc_html( $hero_role ); ?><br>
+				<a href="<?php echo esc_url( $soundevents_url ); ?>" target="_blank" rel="noopener noreferrer" class="sound-link"><strong><?php esc_html_e( 'SOUND', 'ufi-daman' ); ?></strong></a> <?php esc_html_e( 'events resident', 'ufi-daman' ); ?>
+			</p>
+		</div>
 		<p class="hero-scroll"><?php esc_html_e( 'Scroll', 'ufi-daman' ); ?></p>
 	</div>
 </section>
