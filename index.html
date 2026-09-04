@@ -29,6 +29,7 @@
   .ufi-nav { position:fixed;top:0;left:0;right:0;z-index:1000;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:24px 48px;mix-blend-mode:difference; }
   .nav-logo { font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.15em;color:var(--white);text-decoration:none;justify-self:start; }
   .nav-links { display:flex;gap:40px;list-style:none;justify-self:center; }
+  .nav-socials { display:flex;align-items:center;gap:16px;justify-self:end; }
   .nav-links a { font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--white);text-decoration:none;opacity:.6;transition:opacity .2s; }
   .nav-links a:hover { opacity:1; }
   .hamburger { display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none; }
@@ -59,7 +60,7 @@
   .marquee-item { font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:.05em;color:var(--black);flex-shrink:0; }
   .marquee-dot { color:var(--black);opacity:.4;flex-shrink:0;display:flex;align-items:center; }
 
-  .about { padding:120px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;border-bottom:1px solid var(--border); }
+  .about { padding:120px 48px;display:block;border-bottom:1px solid var(--border); }
   .section-label { font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;display:flex;align-items:center;gap:16px; }
   .section-label::before { content:'';width:40px;height:1px;background:var(--accent); }
   .about-headline { font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:1;letter-spacing:.02em; }
@@ -111,6 +112,8 @@
   .contact-text { font-family:'DM Sans',sans-serif;font-style:italic;font-size:20px;color:var(--gray);line-height:1.6; }
   .contact-email { font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,2.5vw,32px);color:var(--white);text-decoration:none;letter-spacing:.05em;border-bottom:2px solid var(--accent);padding-bottom:8px;display:inline-block;transition:color .2s; }
   .contact-email:hover { color:var(--accent); }
+  .sound-link { color:var(--white);text-decoration:none;transition:color .2s; }
+  .sound-link:hover { color:var(--accent); }
   .social-icons { display:flex;gap:16px;flex-wrap:wrap; }
   .social-icon { width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gray);text-decoration:none;font-size:18px;transition:border-color .2s,color .2s; }
   .social-icon:hover { border-color:var(--accent);color:var(--accent); }
@@ -126,6 +129,18 @@
   .ra-btn:hover { opacity:.85; }
   .ra-frame { width:100%;height:600px;border:1px solid var(--border);display:block; }
   @media(max-width:768px) { .upcoming{padding:80px 24px} .ra-embed-wrap{grid-template-columns:1fr} .ra-frame{height:400px} }
+
+  /* Facebook Events */
+  .fb-events-section { padding:120px 48px;border-bottom:1px solid var(--border); }
+  .fb-widget-wrap { display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start; }
+  .fb-widget-info { display:flex;flex-direction:column;gap:24px; }
+  .fb-widget-label { font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent); }
+  .fb-widget-sub { font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--gray); }
+  .fb-widget-btn { display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.1em;color:var(--black);background:var(--accent);padding:14px 32px;text-decoration:none;transition:opacity .2s;align-self:flex-start; }
+  .fb-widget-btn:hover { opacity:.85; }
+  .fb-plugin-wrap { min-height:500px;background:#111;border:1px solid var(--border);overflow:hidden;display:flex;align-items:center;justify-content:center; }
+  @media(max-width:900px) { .fb-widget-wrap{grid-template-columns:1fr} .fb-plugin-wrap{min-height:400px} }
+  @media(max-width:768px) { .fb-events-section{padding:80px 24px} }
 
   .ufi-footer { padding:40px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center; }
   .ufi-footer .logo { font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.1em; }
@@ -146,17 +161,25 @@
 
 </head>
 <body>
+<div id="fb-root"></div>
 <div class="cursor" id="cursor"></div>
 
 <nav class="ufi-nav">
   <a href="#" class="nav-logo">UFI DA MAN</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#gigs">Gigs</a></li>
-    <li><a href="#upcoming">Events</a></li>
+    <li><a href="#events">Events</a></li>
     <li><a href="#mixes">Mixes</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="nav-socials social-icons">
+    <a href="https://ra.co/dj/ufidaman" target="_blank" rel="noopener" class="social-icon" aria-label="Resident Advisor"><i class="fa-solid fa-record-vinyl"></i></a>
+    <a href="https://soundcloud.com/ufi-daman" target="_blank" rel="noopener" class="social-icon" aria-label="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
+    <a href="https://www.mixcloud.com/ufidaman/" target="_blank" rel="noopener" class="social-icon" aria-label="Mixcloud"><i class="fa-brands fa-mixcloud"></i></a>
+    <a href="https://www.facebook.com/ufi.daman.official" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/ufi.daman" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://drive.google.com/drive/folders/1BA8sYOZWWrFfgCezI_Dr7Xrk2-Ju-gpX" target="_blank" rel="noopener" class="social-icon" aria-label="Press Kit"><i class="fa-regular fa-folder-open"></i></a>
+  </div>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -164,8 +187,7 @@
 
 <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
   <a href="#about">About</a>
-  <a href="#gigs">Gigs</a>
-  <a href="#upcoming">Events</a>
+  <a href="#events">Events</a>
   <a href="#mixes">Mixes</a>
   <a href="#contact">Contact</a>
 </div>
@@ -182,7 +204,7 @@
   <div class="hero-bottom">
     <p class="hero-role">
       Multiple Sclerosis fighter<br>
-      @SOUND.events resident
+        <a href="https://www.soundevents.cz" target="_blank" rel="noopener" class="sound-link"><strong>SOUND</strong></a> events resident
     </p>
     <p class="hero-scroll">Scroll</p>
   </div>
@@ -210,26 +232,29 @@
     <p class="section-label">About</p>
     <h2 class="about-headline">UFI DA MAN</h2>
     <p class="about-text">
-      <strong>UFI DA MAN</strong> is a Prague-based DJ and producer constantly moving on the edge
-      of the underground and the mainstream scene. He first found his relationship with
-      electronic music in <strong>1993</strong>, when he started experimenting with early
-      Tracker software.<br><br>
-      Over three decades his sound evolved through electro, house, techno, nu-rave and
-      nu-disco — shaped by countless nights at Prague's iconic clubs and open-air stages.
-      Working in <strong>FL Studio and Ableton</strong>, he crafts sets and originals that
-      hit hard and stay with you long after the lights come on.
+      <strong>UFI DA MAN</strong> is a Prague DJ and producer who constantly moves on the edge of
+      the underground and mainstream scene. He found a relationship with electronic music in
+      <strong>1993</strong> when he first started experimenting with Tracker-type programs.<br><br>
+      Today, he mainly produces in <strong>Ableton</strong> in combination with <strong>NI Maschine</strong>
+      and presents his work independently on SoundCloud, where he also searches for the latest productions
+      of underground artists, which he likes to include in his sets since <strong>2006</strong> — for the
+      first time behind the mix at Smart Club ST.YX.<br><br>
+      For a long time, Ufi was a resident of the Prague club <strong>TOUSTER</strong>, where he had the
+      opportunity to play not only with top Czech DJs but also with foreign guests. Currently a resident DJ
+      of <strong>SOUND</strong>. He performs regularly at Roxy Prague, Roxy Room8, Radost FX,
+      Cross][Club, Duplex Rooftop Venue, Hilton Cloud9, Vinyl Bar Prague, Beach Park Mlekojedy,
+      U Bukanyra, NoD, Akropolis, Jilská 22 and at Centrála.<br><br>
+      Even though in <strong>2016</strong> all seemed lost, thanks to the diagnosis of multiple sclerosis,
+      he is back on the scene. Since <strong>2019</strong> participates in the organization of the electronic
+      day/night open-air festival <strong>Sound</strong>.<br><br>
+      Beyond the club scene, his sets have landed on the stages of some of the most celebrated Czech
+      open-air festivals and events —
+      <strong>SOUND</strong>, <strong>DARKSHIRE</strong>, <strong>SVOJŠICE</strong>,
+      <strong>APOKALYPSA</strong>, <strong>MÁCHÁČ</strong>, <strong>CINDA</strong> and
+      <strong>DOCK TOWN</strong>. Each stage a different crowd, the same relentless energy.
+      He is always looking forward to the next opportunity to connect, move people and explore
+      new sonic territory.
     </p>
-  </div>
-  <div class="about-right reveal">
-    <div class="stat-row">
-      <div><div class="stat-number">30+</div><div class="stat-label">Years in Electronic Music</div></div>
-    </div>
-    <div class="stat-row">
-      <div><div class="stat-number">1993</div><div class="stat-label">Year It All Started</div></div>
-    </div>
-    <div class="stat-row">
-      <div><div class="stat-number">∞</div><div class="stat-label">Tracks in the Crates</div></div>
-    </div>
   </div>
 </section>
 
@@ -240,13 +265,42 @@
     <span class="genre-tag">RETRO</span>
     <span class="genre-tag">HOUSE</span>
     <span class="genre-tag">ELECTRO</span>
+
   </div>
 </div>
 
-<section class="gigs" id="gigs">
+<section class="events" id="events">
   <div class="gigs-header reveal">
-    <h2 class="gigs-title">Live<br>Dates</h2>
+    <h2 class="gigs-title">Events</h2>
   </div>
+
+  <!-- UPCOMING EVENTS — přidej nový event jako .gig-row.upcoming-row před tuto sekci -->
+  <div class="events-sub-label reveal">Upcoming</div>
+
+  <!-- příklad nadcházejícího eventu:
+  <div class="gig-row upcoming-row reveal">
+    <div class="gig-date">
+      <span class="gig-day">28</span>
+      <span class="gig-month">MAR</span>
+    </div>
+    <div class="gig-info">
+      <div class="gig-venue">Název venue</div>
+      <div class="gig-location">Praha · Techno</div>
+    </div>
+    <a href="https://..." target="_blank" rel="noopener" class="gig-ticket">Tickets →</a>
+  </div>
+  -->
+
+  <div class="gig-row no-events reveal">
+    <div class="gig-info">
+      <div class="gig-venue">No upcoming events</div>
+      <div class="gig-location">Check back soon</div>
+    </div>
+  </div>
+
+  <!-- PAST GIGS -->
+  <div class="events-sub-label reveal" style="margin-top:60px;">Past</div>
+
   <div class="gig-row reveal">
     <div class="gig-year">2025</div>
     <div class="gig-info">
@@ -305,28 +359,6 @@
   </div>
 </section>
 
-<!-- RA UPCOMING EVENTS -->
-<section class="upcoming" id="upcoming">
-  <div class="mixes-header reveal">
-    <h2 class="mixes-title">Upcoming<br>Events</h2>
-    <a href="https://ra.co/dj/ufidaman" target="_blank" rel="noopener" class="sc-all">View on RA →</a>
-  </div>
-  <div class="ra-embed-wrap reveal">
-    <div class="ra-info">
-      <p class="ra-label">Live on Resident Advisor</p>
-      <p class="ra-sub">All upcoming gigs are listed on UFI DA MAN's official RA profile. Click any event for tickets and details.</p>
-      <a href="https://ra.co/dj/ufidaman" target="_blank" rel="noopener" class="ra-btn">Open RA Profile ↗</a>
-    </div>
-    <iframe
-      src="https://ra.co/dj/ufidaman"
-      title="UFI DA MAN on Resident Advisor"
-      class="ra-frame"
-      loading="lazy"
-      scrolling="yes">
-    </iframe>
-  </div>
-</section>
-
 <section class="mixes" id="mixes">
   <div class="mixes-header reveal">
     <h2 class="mixes-title">Stream<br>My Sets</h2>
@@ -340,7 +372,7 @@
         <div class="mix-detail">2025 · Techno / House</div>
       </div>
       <iframe scrolling="no" allow="autoplay" loading="lazy"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-da-man-sound-gabriel-loci&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-da-man-sound-gabriel-loci&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
         height="166"></iframe>
     </div>
     <div class="mix-card reveal">
@@ -350,7 +382,7 @@
         <div class="mix-detail">2023 · House / Techno / Electro</div>
       </div>
       <iframe scrolling="no" allow="autoplay" loading="lazy"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/g-sound-by-ufi-da-man-radost-fx-prague-april-21st&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/g-sound-by-ufi-da-man-radost-fx-prague-april-21st&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
         height="166"></iframe>
     </div>
     <div class="mix-card reveal">
@@ -360,7 +392,7 @@
         <div class="mix-detail">2023 · Deep / Techno</div>
       </div>
       <iframe scrolling="no" allow="autoplay" loading="lazy"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-da-man-sound-gabriel-loci-monastery&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-da-man-sound-gabriel-loci-monastery&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
         height="166"></iframe>
     </div>
     <div class="mix-card reveal">
@@ -370,11 +402,12 @@
         <div class="mix-detail">2021 · Open Air Set</div>
       </div>
       <iframe scrolling="no" allow="autoplay" loading="lazy"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-daman-at-sound-open-air-mlekojedy-w-einmusic-2472021&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/ufi-daman/ufi-daman-at-sound-open-air-mlekojedy-w-einmusic-2472021&color=%23e8ff00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
         height="166"></iframe>
     </div>
   </div>
 </section>
+
 
 <section class="contact" id="contact">
   <div class="reveal">
@@ -393,8 +426,8 @@
       <a href="https://soundcloud.com/ufi-daman" target="_blank" rel="noopener" class="social-icon" aria-label="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
       <a href="https://www.mixcloud.com/ufidaman/" target="_blank" rel="noopener" class="social-icon" aria-label="Mixcloud"><i class="fa-brands fa-mixcloud"></i></a>
       <a href="https://www.facebook.com/ufi.daman.official" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="https://x.com/ufi_daman" target="_blank" rel="noopener" class="social-icon" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://bandzone.cz/ufidaman" target="_blank" rel="noopener" class="social-icon" aria-label="Bandzone"><i class="fa-solid fa-music"></i></a>
+      <a href="https://www.instagram.com/ufi.daman" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://drive.google.com/drive/folders/1BA8sYOZWWrFfgCezI_Dr7Xrk2-Ju-gpX" target="_blank" rel="noopener" class="social-icon" aria-label="Press Kit"><i class="fa-regular fa-folder-open"></i></a>
     </div>
   </div>
 </section>
