@@ -50,21 +50,23 @@ document.addEventListener('click', function(e) {
   btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
 
-// Custom cursor with requestAnimationFrame for performance
+// Custom cursor — only on fine-pointer (desktop) devices; skip on touch to save mobile CPU
 const cursor = document.getElementById('cursor');
-let mouseX = 0, mouseY = 0;
-document.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; });
-(function animateCursor() {
-  if (cursor) {
+if (cursor && window.matchMedia && window.matchMedia('(pointer:fine)').matches) {
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; });
+  (function animateCursor() {
     cursor.style.left = mouseX + 'px';
     cursor.style.top = mouseY + 'px';
-  }
-  requestAnimationFrame(animateCursor);
-})();
-document.querySelectorAll('a, .mix-card, .gig-row, .genre-tag').forEach(function(el) {
-  el.addEventListener('mouseenter', function() { if (cursor) cursor.classList.add('expand'); });
-  el.addEventListener('mouseleave', function() { if (cursor) cursor.classList.remove('expand'); });
-});
+    requestAnimationFrame(animateCursor);
+  })();
+  document.querySelectorAll('a, .mix-card, .gig-row, .genre-tag').forEach(function(el) {
+    el.addEventListener('mouseenter', function() { cursor.classList.add('expand'); });
+    el.addEventListener('mouseleave', function() { cursor.classList.remove('expand'); });
+  });
+} else if (cursor) {
+  cursor.style.display = 'none';
+}
 
 // Hamburger mobile menu
 const hamburger = document.getElementById('hamburger');

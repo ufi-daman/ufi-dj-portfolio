@@ -49,6 +49,41 @@ function ufi_enqueue_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'ufi_enqueue_assets' );
 
+/**
+ * Load non-critical stylesheets (icon font, web fonts) asynchronously
+ * so they don't block first render on mobile. Falls back for no-JS.
+ */
+function ufi_async_styles( $tag, $handle ) {
+	$async = array( 'ufi-font-awesome', 'ufi-google-fonts' );
+	if ( ! in_array( $handle, $async, true ) ) {
+		return $tag;
+	}
+	$out = str_replace(
+		"media='all'",
+		"media='print' onload=\"this.media='all';this.onload=null;\"",
+		$tag
+	);
+	if ( $out === $tag ) {
+		// No media attr found — inject the async attributes after <link.
+		$out = preg_replace( '/<link\s/', '<link media="print" onload="this.media=\'all\';this.onload=null;" ', $tag, 1 );
+	}
+	// No-JS fallback: keep the original render-blocking link.
+	$out .= '<noscript>' . $tag . '</noscript>';
+	return $out;
+}
+add_filter( 'style_loader_tag', 'ufi_async_styles', 10, 2 );
+
+/**
+ * Preconnect to the CDNs used for fonts/icons to speed up their fetch.
+ */
+function ufi_resource_hints( $hints, $relation_type ) {
+	if ( 'preconnect' === $relation_type ) {
+		$hints[] = array( 'href' => 'https://cdnjs.cloudflare.com', 'crossorigin' );
+	}
+	return $hints;
+}
+add_filter( 'wp_resource_hints', 'ufi_resource_hints', 10, 2 );
+
 // -------------------------------------------------------------------------
 // 3. CPT: ufi_event
 // -------------------------------------------------------------------------
