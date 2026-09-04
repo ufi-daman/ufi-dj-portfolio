@@ -106,17 +106,64 @@
 			</wp:postmeta>
 		</item>
 		<item>
-			<title>NIGHTLIFE @Cross][Club</title>
+			<title>DNB NETHERWORLD &amp; TECHNO &amp; HOUSE / FREE ENTRY TILL 22:00</title>
 			<link></link>
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
 			<wp:post_id>9003</wp:post_id>
+			<wp:post_date><![CDATA[2026-01-10 20:00:00]]></wp:post_date>
+			<wp:post_date_gmt><![CDATA[2026-01-10 20:00:00]]></wp:post_date_gmt>
+			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+			<wp:post_name><![CDATA[ufi-event-9003]]></wp:post_name>
+			<wp:status><![CDATA[publish]]></wp:status>
+			<wp:post_parent>0</wp:post_parent>
+			<wp:menu_order>0</wp:menu_order>
+			<wp:post_type><![CDATA[ufi_event]]></wp:post_type>
+			<wp:post_password><![CDATA[]]></wp:post_password>
+			<wp:is_sticky>0</wp:is_sticky>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_status]]></wp:meta_key>
+				<wp:meta_value><![CDATA[past]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_date]]></wp:meta_key>
+				<wp:meta_value><![CDATA[2026-01-10]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_day]]></wp:meta_key>
+				<wp:meta_value><![CDATA[10]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_month]]></wp:meta_key>
+				<wp:meta_value><![CDATA[JAN]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_year]]></wp:meta_key>
+				<wp:meta_value><![CDATA[2026]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_location]]></wp:meta_key>
+				<wp:meta_value><![CDATA[Praha]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_tag]]></wp:meta_key>
+				<wp:meta_value><![CDATA[Techno]]></wp:meta_value>
+			</wp:postmeta>
+		</item>
+		<item>
+			<title>NIGHTLIFE @Cross][Club</title>
+			<link></link>
+			<dc:creator><![CDATA[admin]]></dc:creator>
+			<content:encoded><![CDATA[]]></content:encoded>
+			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+			<wp:post_id>9004</wp:post_id>
 			<wp:post_date><![CDATA[2025-08-08 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2025-08-08 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9003]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9004]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -158,12 +205,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9004</wp:post_id>
+			<wp:post_id>9005</wp:post_id>
 			<wp:post_date><![CDATA[2025-07-26 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2025-07-26 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9004]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9005]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -205,12 +252,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9005</wp:post_id>
+			<wp:post_id>9006</wp:post_id>
 			<wp:post_date><![CDATA[2025-07-12 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2025-07-12 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9005]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9006]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -252,12 +299,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9006</wp:post_id>
+			<wp:post_id>9007</wp:post_id>
 			<wp:post_date><![CDATA[2025-02-15 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2025-02-15 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9006]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9007]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -299,12 +346,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9007</wp:post_id>
+			<wp:post_id>9008</wp:post_id>
 			<wp:post_date><![CDATA[2025-01-17 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2025-01-17 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9007]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9008]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -346,12 +393,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9008</wp:post_id>
+			<wp:post_id>9009</wp:post_id>
 			<wp:post_date><![CDATA[2024-11-09 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2024-11-09 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9008]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9009]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -393,12 +440,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9009</wp:post_id>
+			<wp:post_id>9010</wp:post_id>
 			<wp:post_date><![CDATA[2024-09-28 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2024-09-28 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9009]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9010]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -440,12 +487,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9010</wp:post_id>
+			<wp:post_id>9011</wp:post_id>
 			<wp:post_date><![CDATA[2024-09-21 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2024-09-21 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9010]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9011]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -487,12 +534,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9011</wp:post_id>
+			<wp:post_id>9012</wp:post_id>
 			<wp:post_date><![CDATA[2024-04-27 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2024-04-27 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9011]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9012]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -534,12 +581,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9012</wp:post_id>
+			<wp:post_id>9013</wp:post_id>
 			<wp:post_date><![CDATA[2024-04-06 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2024-04-06 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9012]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9013]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -576,17 +623,64 @@
 			</wp:postmeta>
 		</item>
 		<item>
+			<title>ŽN TEKNO STAGE 23/03 CROSS w/ PNEUMATIX /RO</title>
+			<link></link>
+			<dc:creator><![CDATA[admin]]></dc:creator>
+			<content:encoded><![CDATA[]]></content:encoded>
+			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+			<wp:post_id>9014</wp:post_id>
+			<wp:post_date><![CDATA[2024-03-23 20:00:00]]></wp:post_date>
+			<wp:post_date_gmt><![CDATA[2024-03-23 20:00:00]]></wp:post_date_gmt>
+			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+			<wp:post_name><![CDATA[ufi-event-9014]]></wp:post_name>
+			<wp:status><![CDATA[publish]]></wp:status>
+			<wp:post_parent>0</wp:post_parent>
+			<wp:menu_order>0</wp:menu_order>
+			<wp:post_type><![CDATA[ufi_event]]></wp:post_type>
+			<wp:post_password><![CDATA[]]></wp:post_password>
+			<wp:is_sticky>0</wp:is_sticky>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_status]]></wp:meta_key>
+				<wp:meta_value><![CDATA[past]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_date]]></wp:meta_key>
+				<wp:meta_value><![CDATA[2024-03-23]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_day]]></wp:meta_key>
+				<wp:meta_value><![CDATA[23]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_month]]></wp:meta_key>
+				<wp:meta_value><![CDATA[MAR]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_year]]></wp:meta_key>
+				<wp:meta_value><![CDATA[2024]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_location]]></wp:meta_key>
+				<wp:meta_value><![CDATA[Cross][Club · Praha]]></wp:meta_value>
+			</wp:postmeta>
+			<wp:postmeta>
+				<wp:meta_key><![CDATA[_ufi_event_tag]]></wp:meta_key>
+				<wp:meta_value><![CDATA[Techno]]></wp:meta_value>
+			</wp:postmeta>
+		</item>
+		<item>
 			<title>UFI DA MAN - 42 - Don’t Panic!!!</title>
 			<link></link>
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9013</wp:post_id>
+			<wp:post_id>9015</wp:post_id>
 			<wp:post_date><![CDATA[2024-02-23 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2024-02-23 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9013]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9015]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -628,12 +722,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9014</wp:post_id>
+			<wp:post_id>9016</wp:post_id>
 			<wp:post_date><![CDATA[2024-01-13 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2024-01-13 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9014]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9016]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -675,12 +769,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9015</wp:post_id>
+			<wp:post_id>9017</wp:post_id>
 			<wp:post_date><![CDATA[2023-11-03 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2023-11-03 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9015]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9017]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -722,12 +816,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9016</wp:post_id>
+			<wp:post_id>9018</wp:post_id>
 			<wp:post_date><![CDATA[2023-08-05 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2023-08-05 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9016]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9018]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -769,12 +863,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9017</wp:post_id>
+			<wp:post_id>9019</wp:post_id>
 			<wp:post_date><![CDATA[2023-06-17 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2023-06-17 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9017]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9019]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -816,12 +910,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9018</wp:post_id>
+			<wp:post_id>9020</wp:post_id>
 			<wp:post_date><![CDATA[2023-05-20 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2023-05-20 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9018]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9020]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -863,12 +957,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9019</wp:post_id>
+			<wp:post_id>9021</wp:post_id>
 			<wp:post_date><![CDATA[2023-04-15 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2023-04-15 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9019]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9021]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -910,12 +1004,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9020</wp:post_id>
+			<wp:post_id>9022</wp:post_id>
 			<wp:post_date><![CDATA[2023-02-17 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2023-02-17 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9020]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9022]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -957,12 +1051,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9021</wp:post_id>
+			<wp:post_id>9023</wp:post_id>
 			<wp:post_date><![CDATA[2022-10-07 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2022-10-07 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9021]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9023]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1004,12 +1098,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9022</wp:post_id>
+			<wp:post_id>9024</wp:post_id>
 			<wp:post_date><![CDATA[2022-04-01 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2022-04-01 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9022]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9024]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1051,12 +1145,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9023</wp:post_id>
+			<wp:post_id>9025</wp:post_id>
 			<wp:post_date><![CDATA[2022-03-19 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2022-03-19 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9023]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9025]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1098,12 +1192,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9024</wp:post_id>
+			<wp:post_id>9026</wp:post_id>
 			<wp:post_date><![CDATA[2022-03-05 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2022-03-05 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9024]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9026]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1145,12 +1239,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9025</wp:post_id>
+			<wp:post_id>9027</wp:post_id>
 			<wp:post_date><![CDATA[2022-03-04 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2022-03-04 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9025]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9027]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1192,12 +1286,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9026</wp:post_id>
+			<wp:post_id>9028</wp:post_id>
 			<wp:post_date><![CDATA[2022-02-12 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2022-02-12 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9026]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9028]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1239,12 +1333,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9027</wp:post_id>
+			<wp:post_id>9029</wp:post_id>
 			<wp:post_date><![CDATA[2022-02-05 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2022-02-05 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9027]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9029]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1286,12 +1380,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9028</wp:post_id>
+			<wp:post_id>9030</wp:post_id>
 			<wp:post_date><![CDATA[2021-10-09 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2021-10-09 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9028]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9030]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1333,12 +1427,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9029</wp:post_id>
+			<wp:post_id>9031</wp:post_id>
 			<wp:post_date><![CDATA[2021-07-24 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2021-07-24 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9029]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9031]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
@@ -1380,12 +1474,12 @@
 			<dc:creator><![CDATA[admin]]></dc:creator>
 			<content:encoded><![CDATA[]]></content:encoded>
 			<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-			<wp:post_id>9030</wp:post_id>
+			<wp:post_id>9032</wp:post_id>
 			<wp:post_date><![CDATA[2019-08-31 20:00:00]]></wp:post_date>
 			<wp:post_date_gmt><![CDATA[2019-08-31 20:00:00]]></wp:post_date_gmt>
 			<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 			<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-			<wp:post_name><![CDATA[ufi-event-9030]]></wp:post_name>
+			<wp:post_name><![CDATA[ufi-event-9032]]></wp:post_name>
 			<wp:status><![CDATA[publish]]></wp:status>
 			<wp:post_parent>0</wp:post_parent>
 			<wp:menu_order>0</wp:menu_order>
