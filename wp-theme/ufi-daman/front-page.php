@@ -21,6 +21,25 @@ $hero_role       = get_theme_mod( 'ufi_hero_role', 'Multiple Sclerosis fighter' 
 $hero_style      = $hero_bg
 	? ' style="background-image:linear-gradient(rgba(10,10,10,.75),rgba(10,10,10,.95)),url(' . esc_url( $hero_bg ) . ')"'
 	: '';
+
+// Nearest upcoming event for the hero "next gig" strip.
+$hero_next = new WP_Query( array(
+	'post_type'      => 'ufi_event',
+	'posts_per_page' => 1,
+	'no_found_rows'  => true,
+	'meta_query'     => array(
+		'relation'      => 'AND',
+		'status_clause' => array(
+			'key'   => '_ufi_event_status',
+			'value' => 'upcoming',
+		),
+		'date_clause'   => array(
+			'key'     => '_ufi_event_date',
+			'compare' => 'EXISTS',
+		),
+	),
+	'orderby'        => array( 'date_clause' => 'ASC' ),
+) );
 ?>
 
 <!-- ======================================================
@@ -34,6 +53,28 @@ $hero_style      = $hero_bg
 			UFI
 			<span class="highlight">DA MAN</span>
 		</h1>
+		<?php if ( $hero_next->have_posts() ) : $hero_next->the_post();
+			$hn_date   = get_post_meta( get_the_ID(), '_ufi_event_date', true );
+			$hn_day    = get_post_meta( get_the_ID(), '_ufi_event_day', true );
+			$hn_month  = get_post_meta( get_the_ID(), '_ufi_event_month', true );
+			$hn_loc    = get_post_meta( get_the_ID(), '_ufi_event_location', true );
+			$hn_ticket = get_post_meta( get_the_ID(), '_ufi_event_ticket_url', true );
+			if ( ( ! $hn_day || ! $hn_month ) && $hn_date ) {
+				$ts       = strtotime( $hn_date );
+				$hn_day   = $hn_day ? $hn_day : gmdate( 'j', $ts );
+				$hn_month = $hn_month ? $hn_month : strtoupper( gmdate( 'M', $ts ) );
+			}
+			$hn_href = $hn_ticket ? $hn_ticket : '#events';
+			$hn_ext  = $hn_ticket ? ' target="_blank" rel="noopener noreferrer"' : '';
+			?>
+			<a class="hero-next" href="<?php echo esc_url( $hn_href ); ?>"<?php echo $hn_ext; // phpcs:ignore ?>>
+				<span class="hero-next-label"><?php esc_html_e( 'Next gig', 'ufi-daman' ); ?></span>
+				<span class="hero-next-date"><?php echo esc_html( trim( $hn_day . ' ' . $hn_month ) ); ?></span>
+				<span class="hero-next-venue"><?php the_title(); ?></span>
+				<?php if ( $hn_loc ) : ?><span class="hero-next-loc"><?php echo esc_html( $hn_loc ); ?></span><?php endif; ?>
+				<span class="hero-next-arrow" aria-hidden="true">→</span>
+			</a>
+		<?php wp_reset_postdata(); endif; ?>
 	</div>
 	<div class="hero-bottom">
 		<p class="hero-role">

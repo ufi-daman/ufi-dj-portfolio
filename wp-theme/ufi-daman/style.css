@@ -45,6 +45,15 @@ Tags: music, portfolio, dark, one-page, custom-colors
   .hero-index { font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;opacity:0;animation:fadeUp .8s ease .2s forwards; }
   .hero-name { font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,14vw,200px);line-height:.9;letter-spacing:-.02em;opacity:0;animation:fadeUp .8s ease .4s forwards; }
   .hero-name .highlight { color:var(--accent);display:block; }
+  .hero-next { display:inline-flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:32px;padding:14px 20px;border:1px solid var(--border);background:rgba(232,255,0,.04);text-decoration:none;color:var(--white);max-width:100%;opacity:0;animation:fadeUp .8s ease .6s forwards;transition:border-color .25s,background .25s; }
+  .hero-next:hover { border-color:var(--accent);background:rgba(232,255,0,.09); }
+  .hero-next-label { font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--black);background:var(--accent);padding:5px 10px;font-family:'Space Mono',monospace; }
+  .hero-next-date { font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1; }
+  .hero-next-venue { font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.02em;line-height:1; }
+  .hero-next-loc { font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray); }
+  .hero-next-arrow { margin-left:auto;color:var(--accent);font-size:18px;transition:transform .25s; }
+  .hero-next:hover .hero-next-arrow { transform:translateX(4px); }
+  @media(max-width:768px) { .hero-next { gap:10px;padding:12px 14px; } .hero-next-arrow { margin-left:8px; } }
   .hero-bottom { display:flex;justify-content:space-between;align-items:flex-end;opacity:0;animation:fadeUp .8s ease .7s forwards; }
   .hero-role { font-family:'DM Sans',sans-serif;font-style:italic;font-size:clamp(18px,2.5vw,28px);color:var(--gray);line-height:1.4; }
   .hero-scroll { font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:16px;writing-mode:vertical-rl; }
